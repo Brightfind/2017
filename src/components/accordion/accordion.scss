@@ -1,10 +1,11 @@
 html {
 	z-index:9999999;
 	body {
-		visibility: visible !important;
+		visibility: visible;
 		//was merely testing autoprefixer
 		//transform: translateY(200px);
 		z-index:446;
 		background-image:url(/img/bgImg/bg_cat3.jpg);
+		//background-size:cover;
 	}
 }

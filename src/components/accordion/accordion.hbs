@@ -1,4 +1,13 @@
+
 <div class="bfAccordion__outermost">
-	<section>{{accordHeadline1}}</section>
-	<section>{{accordText1}}</section>
+	<section>
+		{{#if accordHeadline1}}<h3>{{accordHeadline1}}</h3>
+  		{{else}}<h3>Accordion Headline</h3>
+  		{{/if}}
+	</section>
+	<section>
+		{{#if accordText1}}{{accordText1}}
+		{{else}}<p>Accordion Text</p>
+  		{{/if}}
+	</section>
 </div>

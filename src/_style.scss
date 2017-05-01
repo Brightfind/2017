@@ -1,13 +1,11 @@
-@import './sass_global/base/reset';
+@import './core/_sass_core/base/reset';
+@import './core/_sass_core/mixinsVarsUtils/colors';
+@import './core/_sass_core/mixinsVarsUtils/utils';
+@import './core/_sass_core/base/grid';
+@import './core/_sass_core/base/grid_flexbox';
+@import './core/_sass_core/base/typography';
 
-@import './sass_global/mixinsVarsUtils/colors';
-@import './sass_global/mixinsVarsUtils/utils';
-
-
-@import './sass_global/base/grid';
-@import './sass_global/base/grid_flexbox';
-@import './sass_global/base/typography';
-
+@import './core/_sass_core/base/main';
 
 @import './components/accordion/accordion';
 @import './components/tabs/tabs';

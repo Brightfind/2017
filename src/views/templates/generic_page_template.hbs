@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html>
-
-{{> ../../components/docHead/docHead}}
-
+<head>
+	<meta charset="utf-8">
+	<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<meta name="theme-color" content="#5786C7">
+	<title>{{title}}</title>
+	<link rel="icon" sizes="32x32" href="/img/iftFavicon.png">
+</head>
 <body>
 	
-	{{> ../../components/svgDefs/svgDefs}}
-	
-	<!-- SKIP NAV -->
-	<div id="skiplink" class="sr-only">
-		<a href="#main">skip to page content</a>
-	</div>
+{{> ../../core/svgDefs/svgDefs}}
 
-	{{> ../../components/navMain/navMain}}
+<!-- SKIP NAV -->
+<div id="skiplink" class="sr-only">
+	<a href="#main">skip to page content</a>
+</div>
+
+{{> ../../components/navMain/navMain}}
+
+<div class="grid__wrapper--outermost">
+
+	<header>
+		<h1>{{title}}</h1>
+	</header>
+		
+	<!-- page content here-->
+	<aside class="aside__left">
+		Optional Aside Left 
+	</aside>
+	<main id="main">
+		{{> @partial-block }}
+	</main>
+	<aside class="aside__right">
+		Optional Aside Right
+	</aside>
+
+	<!--end page content -->
+
+	{{> ../../core/footer/footer}}
 
 
-	
-<!-- page content here-->
-<main id="main">
-	{{> @partial-block }}
-</main>
-<!--end page content -->
-
-
-
-	{{> ../../components/footer/footer}}
-
-	<!--list of vendor scripts can go in own file, but is somewhat more declarative here-->
-	<!--avoid jquery-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
-	
-	<!-- Vue.js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
+</div>
+<!--list of vendor scripts can go in own file, but is somewhat more declarative here-->
+<!--NO jquery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+<!-- Vue.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
 
 </body>
 

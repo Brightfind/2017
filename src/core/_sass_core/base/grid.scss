@@ -1,0 +1,65 @@
+@supports (display: grid){
+	html {
+		.grid__wrapper--outermost {
+			display: grid;
+			grid-template-areas: 
+	    		'header header header header header header'
+	    		'asideLeft main main main main asideRight'
+	    		'footer footer footer footer footer footer';
+	    	@media(max-width:767px){
+	    		grid-template-areas:
+	    			'header'
+	    			'main'
+	    			'asideLeft'
+	    			'asideRight'
+	    			'footer'
+	    	}
+		}
+		header {grid-area: header;}
+		.aside__left {grid-area: asideLeft;}
+		main {grid-area: main;}
+		.aside__right {grid-area: asideRight;}
+		footer {grid-area: footer;}
+	}
+}
+
+//if doesNot support grid, then use flexbox fallback
+.grid__wrapper--outermost {
+	display:flex;
+	flex-flow: row wrap;
+	header {
+		flex-direction: row;
+		flex-basis: 100%;
+
+	}
+	// .aside__left,
+	// .aside__right {
+	// }
+	// main {
+	// }
+	footer {
+		flex-direction: row;
+		flex-basis: 100%;
+	}
+	@media(max-width:767px){
+		header {order:1}
+		main {
+			flex-basis: 100%;
+			order:2
+		}
+		.aside__left {
+			flex-basis: 100%;
+			order:3
+		}
+		.aside__right {
+			flex-basis: 100%;
+			order:4
+		}
+		footer {order:5}
+	}
+	@media(min-width:768px){
+		main {
+			flex-grow: 2;
+		}
+	}
+}

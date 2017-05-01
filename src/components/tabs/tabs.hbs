@@ -1,4 +1,13 @@
-<div>
-	{{tabTitle1}}
-	{{tabText1}}
+
+<div class="bf__tabs">
+{{#if tabTitle1}}
+	<h3>{{tabTitle1}}</h3>
+{{else}}
+	<h3>Tab Default Headline</h3>
+{{/if}}
+{{#if tabText1}}
+	<p>{{tabText1}}</p>
+{{else}}
+	<p>Tab Default Headline</p>
+{{/if}}
 </div>

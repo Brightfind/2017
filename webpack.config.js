@@ -1,9 +1,8 @@
 const webpack = require('webpack')
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProd = (process.env.NODE_ENV === 'production');
 const isDev = (process.env.NODE_ENV === 'development');
@@ -13,95 +12,71 @@ var config = {
   output: {
     path: __dirname + '/_static/'
     ,filename: 'js/app.js'
+    //,publicPath: __dirname + '/_static/'
   },
-  watch: true,
   module: {
     rules: [
-      {test: /\.html$/,use: 'html-loader'},
-      {test: /\.hbs$/,use: 'handlebars-loader'},
-      {test: /\.(jpe?g|png|gif|svg)$/i,use: 'file-loader'} //this allows project to load images from css
+      {test: /\.html$/,use: 'html-loader'}
+      ,{test: /\.hbs$/,use: 'handlebars-loader'}
+      ,{test: /\.(jpe?g|png|gif|svg)$/i,use: 'file-loader'} //this allows project to load images from css
+      ,{test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader?presets[]=es2015'
+          ,'eslint-loader'
+        ]
+      } 
     ]
   },
   plugins: [
-      new webpack.EnvironmentPlugin(['NODE_ENV']),
-      new ExtractTextPlugin({
-        filename: 'css/style.css'
-        ,allChunks: true
-      }),
-      new CopyWebpackPlugin([{from: 'src/img', to: 'img'}]), //cleanest just to copy over images
-      
+      new webpack.EnvironmentPlugin(['NODE_ENV'])
+      ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...
       //PAGES: default is index so no need to specify, but it becomes some weird orphan if not explicit
-      new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'src/views/pages/_rootProjectPage.hbs'
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'homepage.html'
-        ,template: 'src/views/pages/homepage.hbs'
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'compiled_1.html'
-        ,template: 'src/views/pages/test_page_1.hbs'
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'compiled_2.html'
-        ,template: 'src/views/pages/test_page_2.hbs'
-      }),
-      new HtmlWebpackPlugin({
-        filename: '_patternLibrary_compiled.html'
-        ,template: 'src/views/pages/_patternLibrary.hbs'
-      })
+      ,new HtmlWebpackPlugin({filename: 'index.html', template: 'src/views/pages/_rootProjectPage.hbs'})
+      ,new HtmlWebpackPlugin({filename: 'homepage.html', template: 'src/views/pages/homepage.hbs'})
+      ,new HtmlWebpackPlugin({filename: 'compiled_1.html', template: 'src/views/pages/test_page_1.hbs'})
+      ,new HtmlWebpackPlugin({filename: 'compiled_2.html', template: 'src/views/pages/test_page_2.hbs'})
+      ,new HtmlWebpackPlugin({filename: '_patternLibrary_compiled.html', template: 'src/views/pages/_patternLibrary.hbs'})
    ]
 };
 
 if (isDev) {
+  config.watch = true;
   config.devtool = 'eval';
   config.devServer = {
-      port: 8080 //even thought this is default, need to make explicit to access it
+      contentBase: '_static'
+      ,port: 8080
+      ,hot: true
+      ,stats: 'normal'
   };
   config.plugins.push(
-    new LiveReloadPlugin({appendScriptTag: true})
-   ,new UglifyJSPlugin({})
+   new webpack.HotModuleReplacementPlugin()
   );
   config.module.rules.push(
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
+    {test: /\.scss$/,
       use: [
-        'babel-loader?presets[]=es2015'
-        ,'eslint-loader'
+        'style-loader'
+        ,'css-loader'
+        ,'postcss-loader?sourceMap=inline' //postcss config in own file
+        ,'sass-loader?sourceMap'
       ]
-    },
-    {
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-          use: [
-            'css-loader'
-            ,'postcss-loader?sourceMap=inline' //postcss config in own file
-            ,'sass-loader?sourceMap'
-          ]
-      })
     }
   );
-  let address,ifaces = require('os').networkInterfaces();for(let dev in ifaces){ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);}
-  console.log(`¯\_(ツ)_/¯ Site is available at this IP address: ${address}:${config.devServer.port} ¯\_(ツ)_/¯`);
+  let address,ifaces = require('os').networkInterfaces();for(let dev in ifaces){ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);}console.log(`
+External URL: ${address}:${config.devServer.port}
+`);
 }
 
 if (isProd) {
   config.devtool = 'source-map';
   config.plugins.push(
-    new UglifyJSPlugin({
-        mangle: true
+    new ExtractTextPlugin({
+        filename: 'css/style.css'
+        ,allChunks: true // must test if needed
       })
   );
   config.module.rules.push(
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: ['babel-loader?presets[]=es2015']
-    },
-    {
-      test: /\.scss$/,
+    {test: /\.scss$/,
       use: ExtractTextPlugin.extract({
           use: [
             'css-loader?sourceMap'
@@ -113,6 +88,7 @@ if (isProd) {
   );
 }
 
-console.log(`¯\_(ツ)_/¯ node environment is ${process.env.NODE_ENV} ¯\_(ツ)_/¯`);
+console.log(`Node environment: ${process.env.NODE_ENV}
+`);
 
 module.exports = config;
