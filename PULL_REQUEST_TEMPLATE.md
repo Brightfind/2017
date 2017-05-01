@@ -1,5 +1,1 @@
-** Don't approve your own pull requests **
-
-** Say NO to the Shrug **
-
-¯\_(ツ)_/¯
+**Reviewers: Please apply Brightfind Coding Standards**: *[Brightfind Coding Standards](https://github.com/Brightfind/)*

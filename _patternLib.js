@@ -28,36 +28,6 @@ function writeThisFileName(component){
 
 console.log(componentsListMinusDSstore);
 
-
-
-//It shouldn't build this page -- it should create a config array
-//that way i don't have to hack on templating here
-
-
-//add patternLibrScriptHere
-// var patternLibScript = '<script src=""></script>'
-// ObjectOfHTMLtoWrite.push(patternLibScript);
-// var patternLibScriptLiteral = 
-
-//pseudocode -- create script tag -- fill script tag -- append script tag
-
-
-
-// function writePatternCodeBlock(){
-// 	//for demo purposes
-// 	var nodeListOftheSections = document.querySelectorAll('.patternLib__section');
-// 	for(let i=0; i < nodeListOftheSections.length; i++){
-// 		let elementToAdd = document.createElement('div');
-// 		elementToAdd.classList.add('patternLib__codeBlock');
-// 		let cleanedInnerHTMLOfTheSection = nodeListOftheSections[i].innerHTML.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-// 		let wrappedCleanHTML = `<pre><code>${cleanedInnerHTMLOfTheSection}</code></pre>`
-// 		elementToAdd.innerHTML = wrappedCleanHTML;
-// 		nodeListOftheSections[i].appendChild(elementToAdd);
-// 	}
-// }
-
-// document.addEventListener('DOMContentLoaded', writePatternCodeBlock);
-
 var rejoinedObjectOfHTMLtoWrite = ObjectOfHTMLtoWrite.join('');
 
 fs.writeFile('src/core/__patternLib/patternLib_compiledList.hbs', rejoinedObjectOfHTMLtoWrite);
