@@ -66,7 +66,7 @@ yarn run prod
 
 ---
 
-###Adding Pages
+### Adding Pages
 
 - if frontend static pages are required and we cannot work directly in the backend for templating, **this is how to create static frontend pages**. Add a new instance of HTMLWebpackPlugin to the webpack.config file
 
