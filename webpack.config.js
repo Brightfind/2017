@@ -7,6 +7,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProd = (process.env.NODE_ENV === 'production');
 const isDev = (process.env.NODE_ENV === 'development');
 
+const pagesJSON = require('./_pagesList.json');
+
 var config = {
   entry: ['./_entry.js'],
   output: {
@@ -30,15 +32,16 @@ var config = {
   },
   plugins: [
       new webpack.EnvironmentPlugin(['NODE_ENV'])
-      ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...
-      //PAGES: default is index so no need to specify, but it becomes some weird orphan if not explicit
-      ,new HtmlWebpackPlugin({filename: 'index.html', template: 'src/views/pages/_rootProjectPage.hbs'})
-      ,new HtmlWebpackPlugin({filename: 'homepage.html', template: 'src/views/pages/homepage.hbs'})
-      ,new HtmlWebpackPlugin({filename: 'compiled_1.html', template: 'src/views/pages/test_page_1.hbs'})
-      ,new HtmlWebpackPlugin({filename: 'compiled_2.html', template: 'src/views/pages/test_page_2.hbs'})
-      ,new HtmlWebpackPlugin({filename: '_patternLibrary_compiled.html', template: 'src/views/pages/_patternLibrary.hbs'})
+      ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...      
    ]
 };
+
+//TAKE LIST OF PAGES AND CREATE THEM
+for(let i=0; i<pagesJSON.pages.length; i++){
+  config.plugins.push(
+    new HtmlWebpackPlugin({filename: pagesJSON.pages[i].pageName, template: pagesJSON.pages[i].viewFile})
+  );
+}
 
 if (isDev) {
   config.watch = true;

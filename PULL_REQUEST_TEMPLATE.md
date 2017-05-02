@@ -1,1 +1,3 @@
-**Reviewers: Please apply Brightfind Coding Standards**: *[Brightfind Coding Standards](https://github.com/Brightfind/)*
+
+# Reviewers: Please apply Brightfind Coding Standards:
+* [Brightfind Coding Standards](https://github.com/Brightfind/)

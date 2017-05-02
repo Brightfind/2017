@@ -1,0 +1,22 @@
+{"pages": [
+	{
+		"viewFile": "src/views/pages/_rootProjectPage.hbs",
+		"pageName": "index.html"
+	},
+	{
+		"viewFile": "src/views/pages/homepage.hbs",
+		"pageName": "homepage.html"
+	},
+	{
+		"viewFile": "src/views/pages/test_page_1.hbs",
+		"pageName": "compiled_1.html"
+	},
+	{
+		"viewFile": "src/views/pages/test_page_2.hbs",
+		"pageName": "compiled_2.html"
+	},
+	{
+		"viewFile": "src/views/pages/_patternLibrary.hbs",
+		"pageName": "_patternLibrary_compiled.html"
+	}
+]}
