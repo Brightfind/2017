@@ -43,7 +43,7 @@
 ---
 
 
-## Installation:
+### Installation:
 
 - clone github repository
 - cd into directory
@@ -52,21 +52,35 @@
 yarn install
 ```
 
-## Develop
+## Scripts
+
+### Create Project Page & Pattern Library
+
+```
+yarn run patternLibProjectPage
+```
+
+### Develop [FAST: pages only exist in memory -- no actual html file written]
 
 ```
 yarn run dev
 ```
 
-## Build for Prod
+### Build for Prod [outputs static folder]
 
 ```
 yarn run prod
 ```
 
+### Prod + Deploy
+
+```
+yarn run deploy
+```
+
 ---
 
-### Adding Pages
+## Adding Pages
 
 - Add handlebars file in the views/pages folder
 - Add entry to the pages object in _pagesList.json, which is in the root of the project
