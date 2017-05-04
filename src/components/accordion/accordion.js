@@ -1,8 +1,8 @@
 (function accordionFunction(){
 	'use strict';
-	window.onload = testFunction;
+	//window.onload = testFunction;
 	function testFunction(){
-		let testMessage = 'accordion 507';
+		let testMessage = 'accordion 823';
 		console.log(testMessage);
 	}
 })();

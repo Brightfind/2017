@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const reloadPlugin = require('reload-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProd = (process.env.NODE_ENV === 'production');
@@ -14,7 +16,6 @@ var config = {
   output: {
     path: __dirname + '/_static/'
     ,filename: 'js/app.js'
-    //,publicPath: __dirname + '/_static/'
   },
   module: {
     rules: [
@@ -32,6 +33,7 @@ var config = {
   },
   plugins: [
       new webpack.EnvironmentPlugin(['NODE_ENV'])
+      ,new HtmlWebpackHarddiskPlugin()
       ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...      
    ]
 };
@@ -39,7 +41,7 @@ var config = {
 //TAKE LIST OF PAGES AND CREATE THEM
 for(let i=0; i<pagesJSON.pages.length; i++){
   config.plugins.push(
-    new HtmlWebpackPlugin({filename: pagesJSON.pages[i].pageName, template: pagesJSON.pages[i].viewFile})
+    new HtmlWebpackPlugin({filename: pagesJSON.pages[i].pageName, template: pagesJSON.pages[i].viewFile, alwaysWriteToDisk: false})//performance uber alles
   );
 }
 
@@ -54,12 +56,13 @@ if (isDev) {
   };
   config.plugins.push(
    new webpack.HotModuleReplacementPlugin()
+   ,new reloadPlugin()
   );
   config.module.rules.push(
     {test: /\.scss$/,
       use: [
         'style-loader'
-        ,'css-loader'
+        ,'css-loader?url=false'
         ,'postcss-loader?sourceMap=inline' //postcss config in own file
         ,'sass-loader?sourceMap'
       ]
@@ -82,13 +85,15 @@ if (isProd) {
     {test: /\.scss$/,
       use: ExtractTextPlugin.extract({
           use: [
-            'css-loader?sourceMap'
+            'css-loader?sourceMap&url=false'
             ,'postcss-loader?sourceMap' //postcss config in own file
             ,'sass-loader?sourceMap'
           ]
       })
     }
   );
+  fs.writeFile('PULL_REQUEST_TEMPLATE.md', `## Last Prod Build:
+    # ${new Date()}`);
 }
 
 console.log(`Node environment: ${process.env.NODE_ENV}

@@ -68,10 +68,14 @@ yarn run prod
 
 ### Adding Pages
 
-- if frontend static pages are required and we cannot work directly in the backend for templating, **this is how to create static frontend pages**. Add a new instance of HTMLWebpackPlugin to the webpack.config file
+- Add handlebars file in the views/pages folder
+- Add entry to the pages object in _pagesList.json, which is in the root of the project
 
 ```
-,new HtmlWebpackPlugin({filename: '_pageName.html', template: 'src/views/pages/_pageName.hbs'})
+
+	{
+		"viewFile": "src/views/pages/_examplePageName1.hbs",
+		"pageName": "examplePageName1.html"
+	}
 
 ```
-
