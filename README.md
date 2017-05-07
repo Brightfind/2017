@@ -43,6 +43,8 @@
 ---
 
 
+
+
 ### Installation:
 
 - clone github repository
@@ -53,6 +55,23 @@ yarn install
 ```
 
 ## Scripts
+
+### Import Brightfind Prototype Components
+
+Drag desired components from 
+src/components/_bfComponents/ 
+into parent folder 
+src/components/
+
+**If, mid-project you wish to refresh the prototype components folder**, run
+
+```
+yarn run updatePrototypeComponents
+```
+
+---
+
+
 
 ### Create Project Page & Pattern Library
 
@@ -76,6 +95,12 @@ yarn run prod
 
 ```
 yarn run deploy
+```
+
+### Update Prototype Components
+
+```
+yarn run updatePrototypeComponents
 ```
 
 ---

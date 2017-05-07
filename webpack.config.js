@@ -92,9 +92,6 @@ if (isProd) {
       })
     }
   );
-  fs.writeFile('PULL_REQUEST_TEMPLATE.md', `## Reviewers: Check this timestamp to ensure prod was run before the pull request was made:
-### Last Prod Build:
-# ${new Date()}`);
 }
 
 console.log(`Node environment: ${process.env.NODE_ENV}

@@ -5,7 +5,8 @@
     "dev": "NODE_ENV=development webpack-dev-server --host 0.0.0.0 --progress --open",
     "prod": "NODE_ENV=production webpack -p --hide-modules",
     "patternLibProjectPage": "node _patternLib.js & node _projectPage.js",
-    "deploy": "NODE_ENV=production webpack -p --hide-modules && node _deploy.js"
+    "deploy": "NODE_ENV=production webpack -p --hide-modules && node _deploy.js",
+    "updatePrototypeComponents": "git submodule foreach git pull origin master"
   },
   "keywords": [],
   "author": "Brightfind",

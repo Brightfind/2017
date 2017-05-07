@@ -1,0 +1,3 @@
+[submodule "src/components/_bfComponents"]
+	path = src/components/_bfComponents
+	url = https://github.com/Brightfind/_bfComponents.git
