@@ -3,9 +3,11 @@ const pathToComponents = 'src/components/';
 var componentsList = fs.readdirSync(pathToComponents, 'utf8');
 var ObjectOfHTMLtoWrite = [];
 var indexOfDsStore = componentsList.indexOf('.DS_Store');
+var indexOfPrototypeComponentsFolder = componentsList.indexOf('_bfComponents');
 var componentsListMinusDSstore = componentsList.slice(indexOfDsStore + 1);//slice uses different index
+var cleanedList = componentsListMinusDSstore.slice(indexOfPrototypeComponentsFolder + 1);
 
-componentsListMinusDSstore.map(function(component){
+cleanedList.map(function(component){
 	writeThisFileName(component);
 });
 

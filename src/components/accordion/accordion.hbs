@@ -1,13 +1,50 @@
-
-<div class="bfAccordion__outermost">
-	<section>
-		{{#if accordHeadline1}}<h3>{{accordHeadline1}}</h3>
-  		{{else}}<h3>Accordion Headline</h3>
-  		{{/if}}
-	</section>
-	<section>
-		{{#if accordText1}}{{accordText1}}
-		{{else}}<p>Accordion Text</p>
-  		{{/if}}
-	</section>
+<div class="bfAccordion">
+    <div class="bfAccordion__wrapper">
+        <div class="accordion__openCloseAllWrapper--outer">
+            <div class="accordion__openCloseAllWrapper">
+                <div class="accordion__openCloseAllWrapper--inner">
+                    <button class="accordion__openCloseAll__button" id="accordionOpenAllButton"> <span >Expand All</span></button>
+                    <button><span id="accordionCloseAllButon">Collapse All</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion__group">
+            <section class="accordion__section">
+                <header class="accordion__section__header">
+                    <h5 class="accordion__section__headline">
+                        <span>
+                        {{#if accordHeadline1}}
+                        {{accordHeadline1}}
+                        {{else}}
+                         Accordion Default Headline
+                         {{/if}}
+                        <span>
+                     </h5>
+                </header>
+                <div class="accordion__section__content">
+                {{#if accordText1}}
+                {{accordText1}}
+                {{else}}
+                  Praesent lacinia elementum interdum. Aliquam ac mauris at lectus venenatis euismod. Phasellus sed dictum urna, non tempor nulla. Proin sodales augue quis elit eleifend dictum. Nam aliquet ipsum eget felis rhoncus hendrerit. Praesent ut convallis nunc, ac sollicitudin lorem. In accumsan vel erat ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt urna erat, sed suscipit purus imperdiet eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  {{/if}}
+                </div>
+            </section>
+            <section class="accordion__section">
+                <header class="accordion__itemTitleWrap">
+                    <h5 class="accordion__section__headline"><span>Accordion Item</span></h5>
+                </header>
+                <div class="accordion__section__content">
+                  Praesent lacinia elementum interdum. Aliquam ac mauris at lectus venenatis euismod. Phasellus sed dictum urna, non tempor nulla. Proin sodales augue quis elit eleifend dictum. Nam aliquet ipsum eget felis rhoncus hendrerit. Praesent ut convallis nunc, ac sollicitudin lorem. In accumsan vel erat ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt urna erat, sed suscipit purus imperdiet eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </section>
+            <section class="accordion__section">
+                <header class="accordion__itemTitleWrap">
+                    <h5 class="accordion__section__headline"><span>Accordion Item</span></h5>
+                </header>
+                <div class="accordion__section__content">
+                  Praesent lacinia elementum interdum. Aliquam ac mauris at lectus venenatis euismod. Phasellus sed dictum urna, non tempor nulla. Proin sodales augue quis elit eleifend dictum. Nam aliquet ipsum eget felis rhoncus hendrerit. Praesent ut convallis nunc, ac sollicitudin lorem. In accumsan vel erat ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt urna erat, sed suscipit purus imperdiet eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </section>
+        </div>
+    </div>
 </div>

@@ -1,13 +1,43 @@
+<div class="bfTabs">
 
-<div class="bf__tabs">
-{{#if tabTitle1}}
-	<h3>{{tabTitle1}}</h3>
-{{else}}
-	<h3>Tab Default Headline</h3>
-{{/if}}
-{{#if tabText1}}
-	<p>{{tabText1}}</p>
-{{else}}
-	<p>Tab Default Headline</p>
-{{/if}}
+    <div class="bfTabs__nav__wrapper--outer">
+        <nav class="bfTabs__nav">
+            <ul class="bfTabs__nav__list">
+                <li class="bfTabs__nav__listItem bfTabs__nav__listItem--SELECTED-STATE" data-tabset="EarlyBird">
+                {{#if tabTitle1}}
+                    <span>{{tabTitle1}}</span>
+                {{else}}
+                    <span>Tab Default Title</span>
+                {{/if}}
+                    <span>Early Bird</span>
+                </li>
+                <li class="bfTabs__nav__listItem" data-tabset="Standard">
+                    <span>Standard</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="bfTabs__content__wrapper--outer">
+        <div class="bfTabs__content__wrapper--inner">
+        
+            <section class="bfTabs__tab bfTabs__tab--SELECTED-STATE" data-tabset="EarlyBird">
+              <div class="bfTabs__tab__content">
+              {{#if tabText1}}
+                {{tabText1}}
+              {{else}}
+                In suscipit porta odio imperdiet maximus. Phasellus sollicitudin ultricies lacus non pellentesque. Curabitur et pharetra turpis. Nulla dapibus neque at metus pretium finibus. Cras suscipit dolor turpis, sit amet auctor enim pretium a. Donec augue ex, gravida vitae egestas sed, consequat a nibh. Aliquam volutpat maximus erat quis malesuada. 
+              {{/if}}
+              </div>
+            </section>
+
+            <section class="bfTabs__tab" data-tabset="Standard">
+              <div class="bfTabs__tab__content">
+                Praesent lacinia elementum interdum. Aliquam ac mauris at lectus venenatis euismod. Phasellus sed dictum urna, non tempor nulla. Proin sodales augue quis elit eleifend dictum. Nam aliquet ipsum eget felis rhoncus hendrerit. Praesent ut convallis nunc, ac sollicitudin lorem. In accumsan vel erat ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt urna erat, sed suscipit purus imperdiet eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </section>
+
+        </div>
+    </div>
+
 </div>

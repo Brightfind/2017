@@ -25,9 +25,69 @@
 	<a href="#main">skip to page content</a>
 </div>
 
+<div class="nav-trigger-wrapper">
+	<button class="button button__nav-trigger" id="navTrigger">
+		<span>Menu</span><span><svg class="" viewBox="0 0 32 32"><use xlink:href="#iconClose"/></svg></span>
+	</button>
+</div>
+<nav id="navMain" class="navMain contained">
+	<ul class="navMain__list">
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>Register</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Registration</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Why IFT?</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Tips for Attending</span></a></li>
+			</ul>
+		</li>
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>Sessions</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Sessions</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>IFT Next</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Highlights</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Posters</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Courses</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Calls for Proposals</span></a></li>
+			</ul>
+		</li>
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>Hotel &amp; Travel</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Hotels</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Travel</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Venue</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Global Travellers</span></a></li>
+			</ul>
+		</li>
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>Food Expo</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Exhibitors</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Highlights</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Secure Your Stand</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Promotional Opportunities</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>For Exhibitors</span></a></li>
+			</ul>
+		</li>
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>Schedule &amp; Events</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list ">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Schedule</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Fun Run</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Competitions</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Awards</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Future Dates &amp; Locations</span></a></li>				
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Career Center Live</span></a></li>
+			</ul>
+		</li>
+		<li class="navMain__listItem"><a class="navMain__link" href=""><span>News</span><svg class="caretDown" viewBox="0 0 32 32"><use xlink:href="#caretDown"/></svg></a>
+			<ul class="navMain__list">
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>News</span></a></li>
+				<li class="navMain__listItem"><a class="navMain__link" href=""><span>Press</span></a></li>
+			</ul>
+		</li>
 
-<nav>
-	<a href="/">NavHome</a>
+		<!--additional buttons as needed by UI -->
+		<!--<div class="nav-level-2-close-button__wrapper">
+			<button id="navLevel2CloseButton" class="nav-level-2-close__button"><span>Close</span><svg class="" viewBox="0 0 32 32"><use xlink:href="#iconClose"/></svg></button>
+		</div>-->
+	</ul>
 </nav>
 <div class="grid__wrapper--outermost">
 
@@ -46,10 +106,40 @@
 			<img class="b-lazy" data-src="img/contentImg/typeB_768x432.jpg" alt="required alt text"/>
 		
 		
+			<div class="bfTabs">
 			
-			<div class="bf__tabs">
-				<h3>testTabTitle</h3>
-				<p>Test Tab Content</p>
+			    <div class="bfTabs__nav__wrapper--outer">
+			        <nav class="bfTabs__nav">
+			            <ul class="bfTabs__nav__list">
+			                <li class="bfTabs__nav__listItem bfTabs__nav__listItem--SELECTED-STATE" data-tabset="EarlyBird">
+			                    <span>testTabTitle</span>
+			                    <span>Early Bird</span>
+			                </li>
+			                <li class="bfTabs__nav__listItem" data-tabset="Standard">
+			                    <span>Standard</span>
+			                </li>
+			            </ul>
+			        </nav>
+			    </div>
+			
+			    <div class="bfTabs__content__wrapper--outer">
+			        <div class="bfTabs__content__wrapper--inner">
+			        
+			            <section class="bfTabs__tab bfTabs__tab--SELECTED-STATE" data-tabset="EarlyBird">
+			              <div class="bfTabs__tab__content">
+			                Test Tab Content
+			              </div>
+			            </section>
+			
+			            <section class="bfTabs__tab" data-tabset="Standard">
+			              <div class="bfTabs__tab__content">
+			                Praesent lacinia elementum interdum. Aliquam ac mauris at lectus venenatis euismod. Phasellus sed dictum urna, non tempor nulla. Proin sodales augue quis elit eleifend dictum. Nam aliquet ipsum eget felis rhoncus hendrerit. Praesent ut convallis nunc, ac sollicitudin lorem. In accumsan vel erat ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt urna erat, sed suscipit purus imperdiet eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			              </div>
+			            </section>
+			
+			        </div>
+			    </div>
+			
 			</div>	
 		
 	</main>
@@ -59,10 +149,68 @@
 
 	<!--end page content -->
 
-	
-	<footer>
-		footer
-	</footer>
+	<!-- columns automatically fit all in one row and size themselves evenly -->
+	<nav class="footer__nav">
+	    <div class="row">
+	        <div class="column-auto">
+	            <header class="footer__nav__links__header">
+	                <h6 class="footer__nav__links__headline"><span>Register Plus Extra</span></h6>
+	            </header>
+	            <ul class="footer__nav__linksList">
+	                <li class="footer__nav__links__listItem"><a href=""><span>Registration</span></a></li>
+	                <li class="footer__nav__links__listItem"><a href=""><span>Tips for Attending</span></a></li>
+	            </ul>
+	        </div>
+	        <div class="column-auto">
+	            <header class="footer__nav__links__header">
+	                <h6 class="footer__nav__links__headline"><span>Sessions</span></h6>
+	            </header>
+	            <ul class="footer__nav__linksList">
+	                <li class="footer__nav__linksListItem"><a href=""><span>Sessions</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Highlights</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Posters</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Courses</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Calls for Proposals</span></a></li>
+	            </ul>
+	        </div>
+	        <div class="column-auto">
+	            <header class="footer__nav__links__header">
+	                <h6 class="footer__nav__links__headline"><span>Hotel &amp; Travel</span></h6>
+	            </header>
+	            <ul class="footer__nav__linksList">
+	                <li class="footer__nav__linksListItem"><a href=""><span>Hotels</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Travel</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Venue</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Global Travellers</span></a></li>
+	            </ul>
+	        </div>
+	        <div class="column-auto">
+	            <header class="footer__nav__links__header">
+	                <h6 class="footer__nav__links__headline"><span>Food Expo</span></h6>
+	            </header>
+	            <ul class="footer__nav__linksList">
+	                <li class="footer__nav__linksListItem"><a href=""><span>Exhibitors</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Highlights</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Secure Your Stand</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Promotional Opportunities</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Promotional Opportunities</span></a></li>
+	            </ul>
+	        </div>
+	        <div class="column-auto">
+	            <header class="footer__nav__links__header">
+	                <h6 class="footer__nav__links__headline"><span>Schedule &amp; Events</span></h6>
+	            </header>
+	            <ul class="footer__nav__linksList">
+	                <li class="footer__nav__linksListItem"><a href=""><span>Schedule</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Fun Run</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Competitions</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Awards</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Future Dates &amp; Locations</span></a></li>
+	                <li class="footer__nav__linksListItem"><a href=""><span>Career Center Live</span></a></li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
 
 </div>
 <!--list of vendor scripts can go in own file, but is somewhat more declarative here-->
