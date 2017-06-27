@@ -1,25 +1,26 @@
-var root = typeof window === 'undefined' ? global : window,
-	vendors = ['moz', 'webkit'],
-	suffix = 'AnimationFrame',
-	raf = root['request' + suffix],
-	caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
+const root = typeof window === 'undefined' ? global : window
+const vendors = ['moz', 'webkit']
+const suffix = 'AnimationFrame'
+let raf = root['request' + suffix]
+let caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
 
 for (var i = 0; !raf && i < vendors.length; i++) {
 	raf = root[vendors[i] + 'Request' + suffix]
-	caf = root[vendors[i] + 'Cancel' + suffix] || root[vendors[i] + 'CancelRequest' + suffix]
+	caf = root[vendors[i] + 'Cancel' + suffix] 
+		|| root[vendors[i] + 'CancelRequest' + suffix]
 }
 
 // Some versions of FF have rAF but not cAF
 if (!raf || !caf) {
-	var last = 0,
-		id = 0,
-		queue = [],
-		frameDuration = 1000 / 60
+	let last = 0
+	let id = 0
+	let queue = []
+	let frameDuration = 1000 / 60
 
 	raf = function(callback) {
 		if (queue.length === 0) {
-			var _now = now(),
-				next = Math.max(0, frameDuration - (_now - last))
+			let _now = now()
+			let next = Math.max(0, frameDuration - (_now - last))
 			last = next + _now
 			setTimeout(function() {
 				var cp = queue.slice(0)
@@ -33,11 +34,13 @@ if (!raf || !caf) {
 							cp[i].callback(last)
 						} catch (e) {
 							setTimeout(function() {
-								throw e }, 0)
+								throw e
+							}, 0)
 						}
 					}
 				}
-			}, Math.round(next))
+			}
+			, Math.round(next))
 		}
 		queue.push({
 			handle: ++id,

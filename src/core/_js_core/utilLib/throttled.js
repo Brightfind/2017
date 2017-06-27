@@ -1,36 +1,38 @@
 // Throttled is borrowed (stolen) from underscore. It thottles
 // how many times a function can be fired. used mainly for scroll
-var Throttled = function(func, wait, options) {
-		var now = Date.now || function() {
+const Throttled = function(func, wait, options) {
+		let now = Date.now || function() {
 		return new Date().getTime();
-	};
-	var context, args, result;
-	var timeout = null;
-	var previous = 0;
-	if (!options) options = {};
-	var later = function() {
-		previous = options.leading === false ? 0 : now();
-		timeout = null;
-		result = func.apply(context, args);
-		if (!timeout) context = args = null;
-	};
+	}
+	let context
+	let args
+	let result
+	let timeout = null
+	let previous = 0
+	if (!options) options = {}
+	const later = function() {
+		previous = options.leading === false ? 0 : now()
+		timeout = null
+		result = func.apply(context, args)
+		if (!timeout) context = args = null
+	}
 	return function() {
-		if (!previous && options.leading === false) previous = now();
-		var remaining = wait - (now() - previous);
-		context = this;
-		args = arguments;
+		if (!previous && options.leading === false) previous = now()
+		var remaining = wait - (now() - previous)
+		context = this
+		args = arguments
 		if (remaining <= 0 || remaining > wait) {
 			if (timeout) {
-				clearTimeout(timeout);
-				timeout = null;
+				clearTimeout(timeout)
+				timeout = null
 			}
-			previous = now();
-			result = func.apply(context, args);
-			if (!timeout) context = args = null;
+			previous = now()
+			result = func.apply(context, args)
+			if (!timeout) context = args = null
 		} else if (!timeout && options.trailing !== false) {
-			timeout = setTimeout(later, remaining);
+			timeout = setTimeout(later, remaining)
 		}
-		return result;
-	};
-};
-module.exports = Throttled;
+		return result
+	}
+}
+module.exports = Throttled

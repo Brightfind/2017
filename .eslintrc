@@ -9,11 +9,13 @@ env:
   node: true
 
 rules:
-  max-len: [2, 80, 4]
-  brace-style: [2, "stroustrup"]
+  brace-style: [2]
   computed-property-spacing: [2, "never"]
   dot-location: [2, "property"]
 
   one-var: [2, "never"]
   #no-var: [2]
   no-bitwise: [2]
+
+parserOptions:
+  sourceType: module

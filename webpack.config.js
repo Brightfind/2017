@@ -35,6 +35,7 @@ var config = {
       new webpack.EnvironmentPlugin(['NODE_ENV'])
       ,new HtmlWebpackHarddiskPlugin()
       ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...      
+      ,new CopyWebpackPlugin([{from: 'src/data', to: 'data'}])//keep test images light weight...      
    ]
 };
 

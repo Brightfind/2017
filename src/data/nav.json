@@ -1,0 +1,41 @@
+[{
+		"name": "Item 1",
+		"subnav": [{
+				"name": "Sub Item 1:1"
+			},
+			{
+				"name": "Sub Item 1:2"
+			}
+		]
+	},
+	{
+		"name": "Item 2",
+		"subnav": [{
+				"name": "Sub Item 2:1"
+			},
+			{
+				"name": "Sub Item 2:2"
+			}
+		]
+	},
+	{
+		"name": "Item 3",
+		"subnav": [{
+				"name": "Sub Item 3:1"
+			},
+			{
+				"name": "Sub Item 3:2"
+			}
+		]
+	},
+	{
+		"name": "Item 4",
+		"subnav": [{
+				"name": "Sub Item 4:1"
+			},
+			{
+				"name": "Sub Item 4:2"
+			}
+		]
+	}
+]

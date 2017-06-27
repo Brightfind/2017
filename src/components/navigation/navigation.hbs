@@ -1,0 +1,16 @@
+<div class="nav-trigger-wrapper">
+	<button class="button button__nav-trigger" id="navTrigger">
+		<span>
+			</span><span><svg class="" viewBox="0 0 32 32"><use xlink:href="#iconClose"/></svg></span>
+	</button>
+</div>
+<nav id="navigation" v-cloak>
+	<ul class="list">
+		<li v-for="item, index in items">
+		  <span v-on:mouseover="loadSubMenu($event, index)">\{{ item.name }}</span>
+		</li>
+	</ul>
+	<ul class="subitems" v-cloak>
+		<li v-for="subitem in subitems">\{{subitem.name}}</li>
+	</ul>
+</nav>

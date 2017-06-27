@@ -10,13 +10,20 @@ var cleanedList = componentsListMinusDSstore.slice(indexOfPrototypeComponentsFol
 cleanedList.map(function(component){
 	writeThisFileName(component);
 });
-
+function getExtension(filename) {
+    return filename.split('.').pop();
+}
 function writeThisFileName(component){
-	console.log(componentsList.indexOf(component));
 	let theIDtoWrite = `patterLibSection_${componentsList.indexOf(component)}`
-	const testHTML = `<section id="${theIDtoWrite}" class="patternLib__section">{{> ../../components/${component}/${component}.hbs}}</section>`;
+	let filesInDir = fs.readdirSync(`${pathToComponents}${component}`)
+	for (var i = 0; i < filesInDir.length; i++) {
+		if(getExtension(filesInDir[i]) === 'hbs'){
+			const testHTML = `<section id="${theIDtoWrite}" class="patternLib__section">{{> ../../components/${component}/${component}.hbs}}</section>`;
 	ObjectOfHTMLtoWrite.push(testHTML);
+		}
+	}
+	
 }
 
 var rejoinedObjectOfHTMLtoWrite = ObjectOfHTMLtoWrite.join('');
-fs.writeFile('src/views/_compiledPartials/patternLib_componentListCOMPILED.hbs', rejoinedObjectOfHTMLtoWrite);
+fs.writeFileSync('src/views/_compiledPartials/patternLib_componentListCOMPILED.hbs', rejoinedObjectOfHTMLtoWrite);
