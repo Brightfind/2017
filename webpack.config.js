@@ -5,6 +5,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const reloadPlugin = require('reload-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const NunjucksWebpackPlugin = require('nunjucks-webpack-plugin');
 const isProd = (process.env.NODE_ENV === 'production');
 const isDev = (process.env.NODE_ENV === 'development');
 
@@ -19,6 +20,7 @@ var config = {
   module: {
     rules: [
       {test: /\.html$/,use: 'html-loader'}
+      ,{test: /\.njk$/,use: 'nunjucks-loader'}
       ,{test: /\.hbs$/,use: 'handlebars-loader'}
       ,{test: /\.(jpe?g|png|gif|svg)$/i,use: 'file-loader'} //this allows project to load images from css
       ,{test: /\.js$/,
@@ -33,7 +35,11 @@ var config = {
   plugins: [
       new webpack.EnvironmentPlugin(['NODE_ENV'])
       ,new HtmlWebpackHarddiskPlugin()
-      ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...      
+      ,new CopyWebpackPlugin([{from: 'src/img', to: 'img'}])//keep test images light weight...
+      ,new NunjucksWebpackPlugin({template:{
+        from: 'src/views/pages/nunjucksTestPage_1.njk',
+        to: 'nunjucksTest_1.html'
+      }})    
    ]
 };
 
